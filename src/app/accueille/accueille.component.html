@@ -1,0 +1,18 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">WebSiteName</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a routerLink="cinema">Cinema</a></li>
+      <li ><a (click)="administration()">Administration</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a (click)="onlogin()" *ngIf="authservice.jwtToken==null"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      <li><a routerLink="register" *ngIf="authservice.jwtToken==null"><span class="glyphicon glyphicon-user"></span> Sing Up</a></li>
+      <li><a (click)="logout()" *ngIf="authservice.jwtToken!=null"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+    </ul>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>

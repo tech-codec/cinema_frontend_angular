@@ -1,0 +1,274 @@
+<!--<div class="container">
+  <div class="row">
+    <div class="col-md-2">
+      <ul class="list-group">
+        <li [ngClass]="code== 1? 'active': ''" class="list-group-item clickable" (click)="ongetvilles()">Villes</li>
+        <li [ngClass]="code== 2? 'active': ''" class="list-group-item clickable" (click)="ongetCinemas()">Cinémas</li>
+        <li [ngClass]="code== 3? 'active': ''" class="list-group-item clickable" (click)="ongetSalles()">Salles</li>
+        <li class="list-group-item">Catégories</li>
+        <li class="list-group-item">Séances</li>
+        <li class="list-group-item">Films</li>
+        <li [ngClass]="code== 4? 'active': ''" class="list-group-item clickable" (click)="ongetPlaces()">Places</li>
+        <li [ngClass]="code== 5? 'active': ''" class="list-group-item clickable" (click)="ongetProjections()">Projections</li>
+        <li [ngClass]="code== 6? 'active': ''" class="list-group-item clickable" (click)="ongetTickets()">Tickets</li>
+      </ul>
+    </div>
+   <app-ville-admin *ngIf="code==1"></app-ville-admin>
+    <app-cinema-admin *ngIf="code==2"></app-cinema-admin>
+    <app-salla-admin *ngIf="code==3"></app-salla-admin>
+    <app-place-admin *ngIf="code==4"></app-place-admin>
+    <app-projection-admin *ngIf="code==5"></app-projection-admin>
+    <app-ticket-admin *ngIf="code==6"></app-ticket-admin>
+    <router-outlet></router-outlet>
+  </div>
+</div>-->
+
+<div class="wrapper">
+  <div class="sidebar" data-color="black" data-image="">
+    <!--- sidebar -->
+    <div class="sidebar-wrapper">
+      <div class="logo">
+        <a href="http://www.creative-tim.com" class="simple-text">
+          <div class="logo-img">
+            <img src="/assets/img/angular2-logo-white.png"/>
+          </div>
+          Creative Tim
+        </a>
+      </div>
+      <ul class="nav responsive-nav">
+        <li *ngIf="isMobileMenu()">
+          <a class="dropdown-toggle" data-toggle="dropdown">
+            <i class="fa fa-dashboard"></i>
+            <p class="hidden-lg hidden-md">Dashboard</p>
+          </a>
+        </li>
+        <li class="dropdown" *ngIf="isMobileMenu()">
+          <a class="dropdown-toggle" data-toggle="dropdown">
+            <i class="fa fa-globe"></i>
+            <b class="caret hidden-sm hidden-xs"></b>
+            <span class="notification hidden-sm hidden-xs">5</span>
+            <p class="hidden-lg hidden-md">
+              5 Notifications
+              <b class="caret"></b>
+            </p>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Notification 1</a></li>
+            <li><a href="#">Notification 2</a></li>
+            <li><a href="#">Notification 3</a></li>
+            <li><a href="#">Notification 4</a></li>
+            <li><a href="#">Another notification</a></li>
+          </ul>
+        </li>
+        <li *ngIf="isMobileMenu()">
+          <a>
+            <i class="fa fa-search"></i>
+            <p class="hidden-lg hidden-md">Search</p>
+          </a>
+        </li>
+        <li *ngIf="isMobileMenu()">
+          <a href="">
+            <p>Account</p>
+          </a>
+        </li>
+        <li class="dropdown" *ngIf="isMobileMenu()">
+          <a class="dropdown-toggle" data-toggle="dropdown">
+            <p>
+              Dropdown
+              <b class="caret"></b>
+            </p>
+
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </li>
+        <li *ngIf="isMobileMenu()">
+          <a>
+            <p>Log out</p>
+          </a>
+        </li>
+        <li class="separator hidden-lg hidden-md" *ngIf="isMobileMenu()"></li>
+        <li  [ngClass]="code== 1? 'active': ''" (click)="ongetvilles()" class="clickable">
+          <a>
+            <i class="fa fa-address-book"></i>
+            <p>Villes</p>
+          </a>
+        </li>
+        <li (click)="ongetCinemas()"  class="clickable">
+          <a>
+            <i class="fa fa-address-book"></i>
+            <p>Cinemas</p>
+          </a>
+        </li>
+        <li (click)="ongetSalles()"  class="clickable">
+          <a>
+            <i class="fa fa-address-book"></i>
+            <p>Salles</p>
+          </a>
+        </li>
+        <li (click)="ongetPlaces()" class="clickable" >
+          <a>
+            <i class="fa fa-address-book"></i>
+            <p>Places</p>
+          </a>
+        </li>
+        <li (click)="ongetProjections()"  class="clickable">
+          <a>
+            <i class="fa fa-address-book"></i>
+            <p>Projections</p>
+          </a>
+        </li>
+        <li (click)="ongetTickets()"  class="clickable">
+          <a>
+            <i class="fa fa-address-book"></i>
+            <p>Tickets</p>
+          </a>
+        </li>
+        <li>
+          <a>
+            <i class="fa fa-check"></i>
+            <p> pro x </p>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <!-- sidebar -->
+    <div class="sidebar-background" style="background-image: url(assets/img/sidebar-5.jpg"></div>
+  </div>
+
+  <div class="main-panel">
+    <!-- navbar -->
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" (click)="sidebarToggle()">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#" ></a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-left">
+            <li>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <i class="fa fa-dashboard"></i>
+                <p class="hidden-lg hidden-md"></p>
+              </a>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <i class="fa fa-globe"></i>
+                <b class="caret"></b>
+                <span class="notification hidden-sm hidden-xs">5</span>
+                <p class="hidden-lg hidden-md">
+                  5 Notifications
+                  <b class="caret"></b>
+                </p>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Notification 1</a></li>
+                <li><a href="#">Notification 2</a></li>
+                <li><a href="#">Notification 3</a></li>
+                <li><a href="#">Notification 4</a></li>
+                <li><a href="#">Another notification</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa fa-search"></i>
+                <p class="hidden-lg hidden-md">Search</p>
+              </a>
+            </li>
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="#">
+                Account
+              </a>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+
+                Dropdown
+                <b class="caret"></b>
+
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">
+                Log out
+              </a>
+            </li>
+            <li class="separator hidden-lg hidden-md"></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- navbar -->
+    <router-outlet></router-outlet>
+    <div>
+      <!-- footer -->
+      <footer class="footer">
+        <div class="container-fluid">
+          <nav class="pull-left">
+            <ul>
+              <li>
+                <a href="#">
+                  Home
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  Company
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  Portfolio
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  Blog
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <p class="copyright pull-right">
+            &copy; {{test | date: 'yyyy'}} <a href="http://www.creative-tim.com">Creative Tim</a>, made with love for a better web
+          </p>
+        </div>
+      </footer>
+
+      <!-- footer -->
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+
+

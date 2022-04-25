@@ -1,0 +1,36 @@
+<div class="container" *ngIf="currentville">
+  <div class="row">
+    <div class="col-sm-offset-3 col-md-6">
+      <div class="panel panel-primary">
+        <div class="panel-heading"> modifier la ville</div>
+        <div class="panel-body" *ngIf="code==1">
+          <div *ngIf="codeup == 1"><h3 class="text-success">ville modifiée avec succès</h3></div>
+          <form #f="ngForm" (ngSubmit)="onUpdateville(f.value)">
+            <div class="form-group">
+              <label class="control-label">name</label>
+              <input class="form-control" value="{{currentville.name}}" name="name" ngModel [(ngModel)]="currentville.name">
+            </div>
+            <div class="form-group">
+              <label class="control-label">Longitude</label>
+              <input class="form-control" value="{{currentville.longitude}}" name="longitude" ngModel [(ngModel)]="currentville.longitude">
+            </div>
+            <div class="form-group">
+              <label class="control-label">Latitude</label>
+              <input class="form-control" value="{{currentville.latitude}}" name="latitude" ngModel [(ngModel)]="currentville.latitude">
+            </div>
+            <div class="form-group">
+              <label class="control-label">altitude</label>
+              <input class="form-control" value="{{currentville.altitude}}" name="altitude" ngModel [(ngModel)]="currentville.altitude">
+            </div>
+            <div class="form-group" *ngIf="codeup==0">
+              <button class="btn btn-primary" type="submit" >Submit</button>
+            </div>
+            <div class="form-group" *ngIf="codeup==1">
+              <button class="btn btn-primary" (click)="navAmin()" >Ok</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

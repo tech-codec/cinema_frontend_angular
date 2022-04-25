@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-offset-3 col-md-6">
+      <div class="panel panel-primary">
+        <div class="panel-heading"> Ajouter une ville</div>
+        <div class="panel-body" *ngIf="code==1">
+          <div *ngIf="codesave == 1"><h3 class="text-success">ville ajoutée avec succès</h3></div>
+          <form #f="ngForm" (ngSubmit)="onSaveVille(f.value)">
+            <div class="form-group">
+              <label class="control-label">Nom</label>
+              <input class="form-control" name="name" ngModel>
+            </div>
+            <div class="form-group">
+              <label class="control-label">Longitude</label>
+              <input class="form-control" name="longitude" ngModel>
+            </div>
+            <div class="form-group">
+              <label class="control-label">Latitude</label>
+              <input class="form-control" name="latitude" ngModel >
+            </div>
+            <div class="form-group">
+              <label class="control-label">Altitude</label>
+              <input class="form-control" name="altitude" ngModel >
+            </div>
+            <div class="form-group" *ngIf="codesave==0">
+              <button class="btn btn-primary" type="submit" >Submit</button>
+            </div>
+            <div class="form-group" *ngIf="codesave==1">
+              <button class="btn btn-primary" (click)="navAmin()" >Ok</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

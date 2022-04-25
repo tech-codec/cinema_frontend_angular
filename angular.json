@@ -28,9 +28,16 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/perfect-scrollbar/css/perfect-scrollbar.css",
+              "src/assets/sass/light-bootstrap-dashboard.scss",
+              "node_modules/font-awesome/css/font-awesome.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -124,5 +131,8 @@
       }
     }
   },
-  "defaultProject": "cinema-front-web"
+  "defaultProject": "cinema-front-web",
+  "cli": {
+    "analytics": "f46e9e4a-eec1-4caa-a57f-996740b8daf3"
+  }
 }

@@ -1,0 +1,16 @@
+.clickable{
+  cursor: pointer;
+}
+.margin{
+  margin: 5px;
+  width: 40px;
+}
+.marge{
+  width: 150px;
+  height: 200px;
+}
+
+.marg{
+  width: 300px;
+  height: 300px;
+}

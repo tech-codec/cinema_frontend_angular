@@ -1,0 +1,102 @@
+<div>
+  <div class="container">
+    <div *ngIf="code">
+      <div class="panel panel-primary" *ngIf="currentFilm">
+        <div class="panel-heading">
+          Detail sur le film
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-md-7">
+              <img class="clickable" src="{{cineService.host+'/imageFilm/'+currentFilm._embedded.projections[0].film.id + '?ts=' + getTS()}}" width="300" >
+            </div>
+            <p></p>
+            <div class="col-md-5">
+              <div class="form-group">
+                <label class="control-label">Titre:</label>
+                {{currentFilm._embedded.projections[0].film.titre}}
+              </div>
+              <div class="form-group" *ngIf="currentCat">
+                <label class="control-label">Categorie:</label>
+                {{currentCat.categorie.name}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="code == false && film">
+      <div class="panel panel-primary" *ngIf="film">
+        <div class="panel-heading">
+          Detail sur le film
+          <i class="glyphicon glyphicon-edit btn pull-right" (click)="onEditfilm(film)"></i>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-md-7">
+              <img src="{{cineService.host+'/imageFilm/'+film.id + '?ts=' + getTS()}}" width="300" >
+              <p></p>
+              <div *ngIf="editphoto">
+                <div class="mb-2">
+                  <div class="progress">
+                    <div
+                      class="progress-bar progress-bar-info progress-bar-striped"
+                      role="progressbar"
+                      attr.aria-valuenow="{{ progressInfos }}"
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                      [ngStyle]="{ width: progressInfos + '%' }"
+                    >
+                      {{ progressInfos }}%
+                    </div>
+                  </div>
+                </div>
+                <p>
+                  <input type="file" (change)="onSelectedFile($event)" class="form-control">
+                  <button class="btn btn-success" (click)="uploadPhoto()">Upload</button>
+                </p>
+              </div>
+              <p><button (click)="onEditphoto()">
+                <span class="glyphicon glyphicon-edit"></span>
+              </button></p>
+            </div>
+            <p></p>
+            <div class="col-md-5">
+              <div class="form-group">
+                <label class="control-label">Titre:</label>
+                {{film.titre}}
+              </div>
+              <div class="form-group" *ngIf="currentCat">
+                <label class="control-label">Categorie:</label>
+                {{film.categorie.name}}
+              </div>
+              <div class="form-group" *ngIf="currentCat">
+                <label class="control-label">durée:</label>
+                {{film.duree}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="currentCat">
+      <h2 style="align-content: center">Les films de la catégorie: {{currentCat.categorie.name}}</h2>
+    </div>
+    <div class="row" *ngIf="currentCatFilms">
+      <div *ngFor="let cf of currentCatFilms._embedded.films">
+        <div class="col-md-4">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              {{cf.categorie.name}}
+            </div>
+            <div class="panel-body">
+              <div class="col-md-6">
+                <img class="clickable marge" src="{{cineService.host+'/imageFilm/'+cf.id + '?ts=' + getTS()}}" (click)="onGetDetailscf(cf)" >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

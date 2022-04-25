@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-10">
+      <div class="panel panel-primary">
+        <div class="panel-heading">administration de gestion</div>
+        <div class="panel-body">
+          <button *ngIf="Entite" class="pull-left" (click)="onNewEntity()">
+            <i class="glyphicon glyphicon-new-window"></i>
+          </button>
+        </div>
+        <div class="panel-body">
+          <form #f="ngForm" (ngSubmit)="onchercher(f.value)" class="navbar-form navbar-left pull-right">
+            <div class="input-group">
+              <input type="text" class="form-control" name="keyWord" ngModel placeholder="Search">
+              <div class="input-group-btn">
+                <button class="btn btn-default" type="submit">
+                  <i class="glyphicon glyphicon-search"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="panel-body" *ngIf="Entite && code==3">
+          <table class="table table-striped">
+            <thead>
+            <tr><th>Id</th><th>Nom</th><th>nombrePlace</th><th>Cinema</th><th colspan="2">Actions</th></tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let s of Entite._embedded.salles">
+              <td>{{s.id}}</td>
+              <td>{{s.name}}</td>
+              <td>{{s.nombrePlace}}</td>
+              <td>{{s.cinema.name}}</td>
+              <td>
+                <button class="btn btn-default" (click)="ondeletesalle(s)">
+                  <i class="glyphicon glyphicon-remove"></i>
+                </button>
+              </td>
+              <td>
+                <button class="btn btn-default pull-right" (click)="onEditsalle(s)">
+                  <i class="glyphicon glyphicon-edit"></i>
+                </button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <nav aria-label="...">
+          <ul class="pagination pagination-sm">
+            <li [ngClass]="i== currentpage? 'active': ''" *ngFor="let p of pages; let i=index" class="page-item">
+              <a class="clickable page-link" (click)="ongetPage(i)">{{i}}</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-offset-3 col-md-6">
+      <div class="panel panel-primary">
+        <div class="panel-heading"> Ajouter un cinema à une ville</div>
+        <div class="panel-body" *ngIf="code==1">
+          <div *ngIf="codesave == 1"><h3 class="text-success">ville ajoutée avec succès</h3></div>
+          {{id}}
+          <div class="form-group">
+            <label class="control-label">Cinema</label>
+            <select [(ngModel)]="id" class="form-control">
+              <option *ngFor="let c of cinemas._embedded.cinemas" [ngValue]="c.id" >{{c.name}}</option>
+            </select>
+          </div>
+          <form #f="ngForm" (ngSubmit)="onaddSalleToCinema(f.value)">
+            <div class="form-group">
+              <label class="control-label">Nom</label>
+              <input class="form-control" name="name" ngModel>
+            </div>
+            <div class="form-group">
+              <label class="control-label">NombrePlace</label>
+              <input class="form-control" name="nombrePlace" ngModel>
+            </div>
+            <div class="form-group" *ngIf="codesave==0">
+              <button class="btn btn-primary" type="submit" >Submit</button>
+            </div>
+            <div class="form-group" *ngIf="codesave==1">
+              <button class="btn btn-primary" (click)="navAmin()" >Ok</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

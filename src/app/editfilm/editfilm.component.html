@@ -1,0 +1,72 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-offset-3 col-md-6">
+      <div class="panel panel-primary">
+        <div class="panel-heading">Modifier le film</div>
+        <div class="panel-body" *ngIf="currentfilm && code==1">
+          <div class="form-group">
+            <div class="col-md-12">
+              <img class="marg col-sm-offset-2" src="{{cinemaSecive.host+'/imageFilm/'+currentfilm.id + '?ts=' + getTS()}}">
+              <p></p>
+              <p>
+                <input type="file" (change)="onSelectedFile($event)" class="form-control">
+              </p>
+            </div>
+          </div>
+          <form #f="ngForm" (ngSubmit)="onUpdatefilm(f.value)">
+            <div class="form-group">
+              <label class="control-label">Titre</label>
+              <input class="form-control" value="{{currentfilm.titre}}" name="titre" ngModel [(ngModel)]="currentfilm.titre">
+            </div>
+            <div class="form-group">
+              <label class="control-label">Durée</label>
+              <input class="form-control" value="{{currentfilm.duree}}" name="duree" ngModel [(ngModel)]="currentfilm.duree">
+            </div>
+            <div class="form-group">
+              <label class="control-label">Réalisateur</label>
+              <input class="form-control" value="{{currentfilm.realisateurs}}" name="realisateurs" ngModel [(ngModel)]="currentfilm.realisateurs">
+            </div>
+            <div class="form-group">
+              <label class="control-label">Nom photo</label>
+              <input class="form-control" value="{{currentfilm.photo}}" name="photo" ngModel [(ngModel)]="currentfilm.photo">
+            </div>
+            <div class="form-group">
+              <button class="btn btn-primary" type="submit" >Submit</button>
+            </div>
+          </form>
+        </div>
+        <div class="panel-body" *ngIf="code==2 && currentfilmup">
+          <div class="row">
+            <h2 class="text-success">Film modifié avec succè</h2>
+            <div class="col-md-7">
+              <img src="{{cinemaSecive.host+'/imageFilm/'+currentfilmup.id +'?ts=' + getTS()}}" width="300" >
+              <p></p>
+            </div>
+            <p></p>
+            <div class="col-md-5">
+              <div class="form-group">
+                <label class="control-label">Titre:</label>
+                {{currentfilmup.titre}}
+              </div>
+              <div class="form-group">
+                <label class="control-label">Durée:</label>
+                {{currentfilmup.duree}}
+              </div>
+              <div class="form-group">
+                <label class="control-label">Réalisateurs:</label>
+                {{currentfilmup.realisateurs}}
+              </div>
+              <div class="form-group">
+                <label class="control-label">Nom:</label>
+                {{currentfilmup.photo}}
+              </div>
+              <div>
+                <button class="btn btn-success" (click)="onafichefilm()">OK</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

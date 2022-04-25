@@ -1,0 +1,71 @@
+<div class="main-content">
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-primary">
+        <div class="panel-heading">administration de gestion</div>
+        <div class="panel-body">
+          <button *ngIf="Entite" class="pull-left" (click)="onNewEntity()">
+            <i class="fa fa-plus-circle fa-s15x"></i>
+          </button>
+        </div>
+        <div class="panel-body">
+          <button *ngIf="Entite" class="pull-left" (click)="onfdffilm()">
+            <i class="fa fa-print"></i>
+          </button>
+        </div>
+        <div class="panel-body">
+          <form #f="ngForm" (ngSubmit)="onchercher(f.value)" class="navbar-form navbar-left pull-right navbar-ct-red">
+            <div class="input-group">
+              <input type="text" class="form-control" name="keyWord" ngModel placeholder="Search">
+              <div class="input-group-btn">
+                <button class="btn btn-default" type="submit">
+                  <i class="fa fa-search"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="panel-body" *ngIf="Entite && code==1">
+          <table class="table table-striped">
+            <thead>
+            <tr><th>Id</th><th>Nom</th><th>Longitude</th><th>Latitude</th><th>altitude</th><th colspan="2">Actions</th></tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let v of Entite._embedded.villes">
+              <td>{{v.id}}</td>
+              <td>{{v.name}}</td>
+              <td>{{v.longitude}}</td>
+              <td>{{v.latitude}}</td>
+              <td>{{v.altitude}}</td>
+              <td>
+                <button class="btn btn-danger btn-round" (click)="ondeleteville(v)">
+                  <i class="fa fa-remove"></i>
+                </button>
+              </td>
+              <td>
+                <button class="btn btn-round btn-primary" (click)="onEditville(v)">
+                  <i class="fa fa-pencil"></i>
+                </button>
+              </td>
+              <td>
+                <button class="btn btn-round btn-primary" (click)="onEditville(v)">
+                  <i class="fa fa-pencil"></i>
+                </button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <nav aria-label="...">
+          <ul class="pagination pagination-sm">
+            <li [ngClass]="i== currentpage? 'active': ''" *ngFor="let p of pages; let i=index" class="page-item">
+              <a class="clickable page-link" (click)="ongetPage(i)">{{i}}</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
