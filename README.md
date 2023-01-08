@@ -1,27 +1,51 @@
 # CinemaFrontWeb
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.6.
+C'est une application de gestion de cinémas. pour un client qui souhaite réservé des tickets il peut le fait  a partie de cette applicatio.
+pour la mettre sur pied j'ai utilisé les technologie telles que: springboot, springSecurity, itextPDF, JWT, etc ..
 
-## Development server
+## la page d'accueil de l'application:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+![accueil_cinemas](https://user-images.githubusercontent.com/72146213/211197120-5be97aba-7d40-4388-a8f2-1cbe05f9b481.PNG)
 
-## Code scaffolding
+## Formulaire de modification d'un film:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+![Formulaire_modif_film](https://user-images.githubusercontent.com/72146213/211197200-772c7864-7006-49c2-82d5-3485690a48af.PNG)
 
-## Build
+## liste des films d'une catégorie:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+![Liste_par_categorie](https://user-images.githubusercontent.com/72146213/211197226-ffde2316-774a-4e61-9b04-4ee807308a13.PNG)
 
-## Running unit tests
+## système de réservation de ticket:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+![Reservation de ticket](https://user-images.githubusercontent.com/72146213/211197271-cc6f12ff-3f8e-4d91-a16d-d76f39a47516.PNG)
 
-## Running end-to-end tests
+## partie administration:
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+![Admin_cine_ville](https://user-images.githubusercontent.com/72146213/211197314-686ee519-94df-4510-9de7-0a3772af1229.PNG)
 
-## Further help
+## formulaire modification ville:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+![Ville_modif_succes](https://user-images.githubusercontent.com/72146213/211197358-0e4863ac-268c-4211-abaa-e46c5d411e9c.PNG)
+
+## impression en pdf film:
+
+![imprimer_film_pdf](https://user-images.githubusercontent.com/72146213/211197379-46860920-ea95-4480-bca1-2ca6a389d370.PNG)
+
+## film imprimé en format pdf:
+
+![Film_pdf](https://user-images.githubusercontent.com/72146213/211197408-9026113a-ce67-47a7-a5ea-0ab05e618eb2.PNG)
+
+## liste des films en format PDF:
+
+![Liste_films_pdf](https://user-images.githubusercontent.com/72146213/211197429-da789da3-a95a-4f0b-9345-4e56f6a8b395.PNG)
+
+## liste des cinémas en format PDF:
+
+![Liste_cinemas_pdf](https://user-images.githubusercontent.com/72146213/211197461-8e5db733-fe7c-4393-a11b-4debc3d43838.PNG)
+
+
+
+
+
+
+
